@@ -100,6 +100,24 @@ class AVLNode:
         else:
             return newRoot
 
+    def nextSmallest(self):
+        if self.right is not None:
+            curr = self.right
+            while(curr.left is not None):
+                curr = curr.left
+            return curr
+        else:
+            return self
+
+    def nextLargest(self):
+        if self.left is not None:
+            curr = self.left
+            while(curr.right is not None):
+                curr = curr.right
+            return curr
+        else:
+            return self
+
     def inOrder(self):
         if self.left is not None:
             self.left.inOrder()
